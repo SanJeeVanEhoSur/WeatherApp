@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Weather Forecast</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://cdn.dribbble.com/users/28455/screenshots/1389791/media/bd9f8d16f8a3027d4dccb852d44b37d6.gif');
+    background-size: 30%; 
+    background-position: calc(100% - 100px); 
+    background-repeat: no-repeat;
+    background-color:#87CEEB ;
+    margin-right: 10px;
+    font-family: sans-serif;
+    margin-top: 40px;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
+        }
+
+        .regform {
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 0px 20px 0px 20px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details {
+            font-weight: bold;
+            font-size: 17px;
+            color: #FFFFFF
+        }
+        .left-half {
+            margin-top: 10px;
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .right-half {
+            position: absolute;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="regform mt-3">
+        {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% else %}
+
+        <h1>Live Weather Forecast: {{weather_data.city}}</h1>
+    </div>
+
+    <div class="container-fluid left-half">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF;">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Time: {{ weather_data.current_time }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF;">
+                    <div class="card-body">
+                        <h5 class="card-title">Temperature: {{ weather_data.temp }}°C</h5>
+                        <p class="card-text">Feels like: {{ weather_data.feels_like }}°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF; ">
+                    <div class="card-body">
+                        <h5 class="card-title">Condition: {{ weather_data.condition }}</h5>
+                        <p class="card-text">Wind: {{ weather_data.wind }} m/s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF;">
+                    <div class="card-body">
+                        <h5 class="card-title">Humidity: {{ weather_data.humidity }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF;">
+                    <div class="card-body">
+                        <h5 class="card-title">Description: {{ weather_data.description }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12">
+                <div class="card text-center" style="background-color: #2c3e50; color: #FFFFFF;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pressure: {{ weather_data.pressure }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{% endif %}
+    </div>
+
+
+</body>
+</html>
